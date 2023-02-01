@@ -1,18 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login';
+import { Route, Routes, BrowserRouter} from 'react-router-dom'
+import ChatRoom from './components/ChatRoom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-       
-      </header>
-    </div>
-  );
+  return <BrowserRouter>
+    <Routes>
+      <Route component={Login} path="/login"/>
+      <Route component={ChatRoom} path="/"/>
+    </Routes>
+  </BrowserRouter>
 }
 
 export default App;
