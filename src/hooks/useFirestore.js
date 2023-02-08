@@ -6,24 +6,12 @@ const UseFirestore = (collection, condition) => {
 
   React.useEffect(() => {
     let collectionRef = db.collection(collection).orderBy("createAt");
-    //condition
-    // {
-    //     fieldName:'abc',
-    //     operator: '==',
-    //     compareValue: 'abc'
-    // }
-
     if (condition) {
-      if (!collection.compareValue || !collection.compareValue.length) {
-        return;
-      }
-      
       collectionRef = collectionRef.where(
         condition.fieldName,
         condition.operator,
         condition.compareValue
       );
-
     }
 
     const unsubscribe = collectionRef.onSnapshot((snapshot) => {
